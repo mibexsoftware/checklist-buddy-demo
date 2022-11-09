@@ -1,0 +1,65 @@
+# Checklist Buddy by Mibex Software https://www.mibexsoftware.com/
+
+# To create a new task, use '+task+' followed by the task description. 
+# To create a reminder (a non-blocking comment), use '+comment+' followed by the comment text
+
+# To filter when a task is applied, prepend the task/comment/title with one or more of the following filters:
+# '--source'        - the source branch pattners
+# '--source-except' - all pull requests except those matching this pattern 
+# '--target'        - the target/destination branch patterns
+# '--files'         - diff file pattern, similar to .gitignore
+
+# When more than one task has the same filter settings, these are grouped as a checklist.
+# Note: entries with the same filter settings will be grouped together, regardless of position in file
+
+# To name a checklist, create a line entry with the desired filter settings and +title+ Your Checklist Title
+
+
+# Checklist for new features
+--source feature/* +title+ Feature releasable?
+--source feature/* +task+ Feature is [discoverable](https://fishshell.com/docs/current/design.html#the-law-of-discoverability) for users?
+--source feature/* +task+ [UX intuitive and better than before](https://fishshell.com/docs/current/design.html#the-law-of-user-focus)?
+--source feature/* +task+ Feature covered by automated tests?
+--source feature/* +task+ [Public documentation](https://mibexsoftware.atlassian.net/wiki/spaces/CB/pages/3004661778/GitHub+-+Pull+Request+Checklist+Buddy) and [Marketplace listing](https://github.com/marketplace/pull-request-checklist-buddy) ready?
+--source feature/* +task+ Release note snippet for public release notes?
+--source feature/* +task+ Manual test cases and testing instructions documented in Jira issues?
+
+
+# Checklist for hot fixes
+--target main --source hotfix/* +title+ Hotfix releasable?
+--target main --source hotfix/* +task+ Hotfix covered by automated tests?
+--target main --source hotfix/* +task+ Release note snippet for public release notes?
+--target main --source hotfix/* +task+ Manual test cases and testing instructions ready?
+
+
+# Checklist for new releases
+--target release/checklist-buddy +title+ release checklist :checkered_flag:
+--target release/checklist-buddy +task+ Jira version: description is updated and released
+--target release/checklist-buddy +task+ Jira "Fix version" on all issues, remove version from unfinished issue
+--target release/checklist-buddy +task+ Version number bumped?
+--target release/checklist-buddy +task+ `git tag --annotate checklist-buddy-X.Y.Z` and `git push`
+--target release/checklist-buddy +task+ [Public documentation](https://mibexsoftware.atlassian.net/wiki/spaces/CB/pages/3004661778/GitHub+-+Pull+Request+Checklist+Buddy) ready to publish?
+--target release/checklist-buddy +task+ [Marketplace listing](https://github.com/marketplace/pull-request-checklist-buddy) updates ready? screenshots, bullet points, highlights etc.
+--target release/checklist-buddy +comment+ Inform all customers in associated Jira tickets about the new release and close them if possible.
+--target release/checklist-buddy +task+ Social media announcement is scheduled?
+--target release/checklist-buddy +comment+ All done? merge PR with `--ff-only`.
+
+
+# Checklist for individual files
+--files **/*.jpg +task+ Are images appropriately compressed?
+--files **/*.js  +task+ Each promise/callback/async properly handles failures
+
+
+# Checklist for security guidelines
+--files **/*.java +title+ Change secure?
+--files **/*.java +task+ All new public endpoints enforce authorization?
+--files **/*.java +task+ [OWASP top 10](https://owasp.org/Top10/) considered and no potential vulnerabilities found?
+--files **/*.java +task+ Any web UI is [escaping output to prevent XSS](https://stackoverflow.com/questions/12799539/javascript-xss-prevention)
+--files **/*.java +task+ [SQL Injection](https://stackoverflow.com/questions/9516625/prevent-sql-injection-attacks-in-a-java-program) has been prevented through parameterized queries
+
+
+# Checklist for coding guidelines
++title+ Complies with our architecture and coding standards?
++task+  Potential performance pitfalls were considered?
++task+  Commit messages follow our convention?
++task+  Does this code comply with the teams chosen architecture?
