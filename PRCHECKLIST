@@ -46,16 +46,16 @@
 
 
 # Checklist for individual files
---files **/*.jpg +task+ Are images appropriately compressed?
---files **/*.js  +task+ Each promise/callback/async properly handles failures
+--files *.jpg +task+ Are images appropriately compressed?
+--files *.js  +task+ Each promise/callback/async properly handles failures
 
 
 # Checklist for security guidelines
---files **/*.java +title+ Change secure?
---files **/*.java +task+ All new public endpoints enforce authorization?
---files **/*.java +task+ [OWASP top 10](https://owasp.org/Top10/) considered and no potential vulnerabilities found?
---files **/*.java +task+ Any web UI is [escaping output to prevent XSS](https://stackoverflow.com/questions/12799539/javascript-xss-prevention)
---files **/*.java +task+ [SQL Injection](https://stackoverflow.com/questions/9516625/prevent-sql-injection-attacks-in-a-java-program) has been prevented through parameterized queries
+--files *.java +title+ Change secure?
+--files *.java +task+ All new public endpoints enforce authorization?
+--files *.java +task+ [OWASP top 10](https://owasp.org/Top10/) considered and no potential vulnerabilities found?
+--files *.java +task+ Any web UI is [escaping output to prevent XSS](https://stackoverflow.com/questions/12799539/javascript-xss-prevention)
+--files *.java +task+ [SQL Injection](https://stackoverflow.com/questions/9516625/prevent-sql-injection-attacks-in-a-java-program) has been prevented through parameterized queries
 
 
 # Checklist for coding guidelines
