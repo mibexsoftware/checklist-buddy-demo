@@ -9,11 +9,10 @@ Also available for [Bitbucket](https://marketplace.atlassian.com/apps/1225571/pu
 ## Examples
 Based on the configuration as code file [PRCHECKLIST](https://github.com/mibexsoftware/checklist-buddy-demo/blob/main/PRCHECKLIST), here are a few pull requests with checklists for demonstration:
 
-- Checklist for [new features](https://github.com/mibexsoftware/checklist-buddy-demo/pull/3)
+- Checklist for [new features](https://github.com/mibexsoftware/checklist-buddy-demo/pull/14)
 
 - Checklist for [hot fixes](https://github.com/mibexsoftware/checklist-buddy-demo/pull/4)
 
 - [Security checklist](https://github.com/mibexsoftware/checklist-buddy-demo/pull/8)
-
 
 - [Release checklist](https://github.com/mibexsoftware/checklist-buddy-demo/pull/11)
