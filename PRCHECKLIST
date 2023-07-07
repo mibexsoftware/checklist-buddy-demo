@@ -2,18 +2,22 @@
 
 # To create a new task, use '+task+' followed by the task description. 
 # To create a reminder (a non-blocking comment), use '+comment+' followed by the comment text
+# To name a checklist, create a line entry with the desired filter settings and +title+ Your Checklist Title
 
 # To filter when a task is applied, prepend the task/comment/title with one or more of the following filters:
-# '--source'        - the source branch pattners
-# '--source-except' - all pull requests except those matching this pattern 
-# '--target'        - the target/destination branch patterns
-# '--files'         - diff file pattern, similar to .gitignore
+# --source         - for pull requests for which the source branch matches a specific pattern
+# --target         - for pull requests for which the target/destination branch matches a specific pattern
+# --files          - for pull requests for which changes have been made to files matching a diff file pattern
+# --commit-title   - for pull requests with commit titles (first line of commit message) that contain a substring
+# --put-on-files   - to apply your checklist on each file matching the diff file pattern, but only if these files are changed in the pull request
+
+# Each of the filters above can be rather used as an exception rule by appending the -except modifier. For example,
+# --source-except  - for pull requests for which the source branch does not match a specific pattern
 
 # When more than one task has the same filter settings, these are grouped as a checklist.
 # Note: entries with the same filter settings will be grouped together, regardless of position in file
 
-# To name a checklist, create a line entry with the desired filter settings and +title+ Your Checklist Title
-
+# For more information, check our docs: https://docs.mibexsoftware.com/checklist-buddy/syntax-reference
 
 # Checklist for new features
 --source feature/* +title+ Feature releasable?
@@ -45,9 +49,13 @@
 --target release/checklist-buddy +comment+ All done? merge PR with `--ff-only`.
 
 
-# Checklist for individual files
+# Checklist for individual files: global PR tasks vs. file-level tasks with --put-on-files
 --files *.jpg +task+ Are images appropriately compressed?
---files *.js  +task+ Each promise/callback/async properly handles failures
+--put-on-files CODEOWNERS --with-modification deleted +task+ When deleting this file, no Code Owners will be assigned anymore!
+
+
+# Checklist for commit titles, e.g. for WIP commits: 
+--commit-title WIP +task+ Clean-up Work-in-progress commits 
 
 
 # Checklist for security guidelines
